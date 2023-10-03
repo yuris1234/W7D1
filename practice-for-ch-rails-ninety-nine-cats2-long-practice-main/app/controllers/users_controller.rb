@@ -1,4 +1,4 @@
-class UsersController < ApplicationRecord
+class UsersController < ApplicationController
     def new
         render :new 
     end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "cats#index"
 
-  resources :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :cats, except: :destroy do
     resources :cat_rental_requests, only: [:new]

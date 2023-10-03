@@ -10,16 +10,21 @@
 
     <%= stylesheet_link_tag "application" %>
   </head>
-  <% if current_user == nil %>
-    <%= @user.username %>
+  <% if !current_user.nil? %>
+    <%= current_user.username %>
     <form action="<%= session_url%>" method="post">
-      <input type="hidden" name="method" value="delete">
+      <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Logout">
     </form> 
   <% else %>
-    s
+    <form action="<%= new_session_url %>" method="get">
+      <input type="submit" value="Login">
+    </form>
+    <form action="<%= new_user_url %>" method="get">
+      <input type="submit" value="Sign up">
+    </form>
+  <% end %>
 
-  <h1> <%= @user.username 
   <body>
     <nav class="main-nav">
       <h1><a href="<%= cats_url %>">99 Cats</a></h1>
