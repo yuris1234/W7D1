@@ -10,6 +10,14 @@
 
     <%= stylesheet_link_tag "application" %>
   </head>
+  <% if current_user == nil %>
+    <%= @user.username %>
+    <form action="<%= session_url%>" method="post">
+      <input type="hidden" name="method" value="delete">
+      <input type="submit" value="Logout">
+    </form> 
+  <% else %>
+    s
 
   <h1> <%= @user.username 
   <body>
